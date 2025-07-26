@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vansh Saxena - Portfolio</title>
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Portfolio Section Styles */
+    .portfolio-section {
+      margin-bottom: 30px;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .portfolio-item {
+      background: var(--border-gradient-onyx, #2a2a2a);
+      border-radius: 14px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .portfolio-banner {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-banner {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .portfolio-item:nth-child(2) .portfolio-banner {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    
+    .portfolio-item:nth-child(3) .portfolio-banner {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .portfolio-item:nth-child(4) .portfolio-banner {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+    
+    .portfolio-item:nth-child(5) .portfolio-banner {
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .portfolio-content h3 {
+      color: var(--white-2, #ffffff);
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    
+    .portfolio-category {
+      color: var(--light-gray-70, #bcbcbc);
+      font-size: 14px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .portfolio-description {
+      color: var(--light-gray, #d4d4d4);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .portfolio-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .tech-tag {
+      background: var(--orange-yellow-crayola, #ffdb70);
+      color: var(--smoky-black, #0c0c0c);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    /* Hide portfolio section by default */
+    .portfolio {
+      display: none;
+    }
+    
+    .portfolio.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Vansh Saxena" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Vansh Saxena">Vansh Saxena</h1>
+          <p class="title">Student (Aspiring AI/ML Developer)</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:vanshsaxena261004@gmail.com" class="contact-link">vanshsaxena261004@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+917817042828" class="contact-link">+91 7817042828</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2004-10-26">26 October 2004</time>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Bareilly, India</address>
+            </div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item"><a href="http://github.com/vanshSaxena04/" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
+          <li class="social-item"><a href="https://www.linkedin.com/in/vanshsaxena04/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li class="social-item"><a href="https://x.com/vanshsaxena04" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li class="social-item"><a href="http://www.replacemeAsap.com" class="social-link"><ion-icon name="globe-outline"></ion-icon></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+        </ul>
+      </nav>
+
+      <article class="about active" data-page="about">
+        <header><h2 class="h2 article-title">About Me</h2></header>
+        <section class="about-text">
+          <p>Hi, I'm Vansh Saxena, an AI/ML enthusiast and aspiring researcher currently pursuing my B.Tech in Information Technology. I specialize in applying deep learning and computer vision to solve real-world problems, with a strong interest in satellite imagery, sports analytics, and neural network design.</p>
+          <p>I'm deeply focused on writing a research paper around enhancing low-resolution ISRO satellite images using GAN-based super-resolution models like ESRGAN. I also built an OpenCV-based football analytics system and contribute to open-source ML via the Kornia GitHub repository.</p>
+        </section>
+
+        <section class="service">
+          <h3 class="h3 service-title">What I'm Doing</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Development icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Open Source ML</h4>
+                <p class="service-item-text">Contributing to advanced vision models and libraries like Kornia & LoFTR.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="App icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">GAN-based Research</h4>
+                <p class="service-item-text">Super-resolution of satellite imagery using GANs like ESRGAN.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg" alt="AI analytics icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Sports Analytics</h4>
+                <p class="service-item-text">Computer vision-based tracking systems for real-time football stats.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Hackathon icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Hackathon Prototyping</h4>
+                <p class="service-item-text">Solo ML project development inspired by space-tech problem statements.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="testimonials">
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card">
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Yash Bahuguna" width="60">
+                </figure>
+                <h4 class="h4 testimonials-item-title">Yash Bahuguna</h4>
+                <div class="testimonials-text">
+                  <p>Vansh's dedication to AI and his independent pursuit of research is genuinely inspiring. Watching him handle satellite data processing with such clarity is impressive.</p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card">
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Pranay Agarwal" width="60">
+                </figure>
+                <h4 class="h4 testimonials-item-title">Pranay Agarwal</h4>
+                <div class="testimonials-text">
+                  <p>Vansh has a natural ability to turn AI problems into working prototypes. His football analytics system is unlike anything I've seen from an undergrad.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="resume" data-page="resume">
+        <header><h2 class="h2 article-title">Resume</h2></header>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">JSS Academy of Technical Education, Noida</h4>
+              <span>2024 — 2028</span>
+              <p class="timeline-text">B.Tech in Information Technology. Specialized in AI/ML, computer vision, deep learning and GAN-based super-resolution research.</p>
+            </li>
+          </ol>
+        </section>
+        <section class="skill">
+          <h3 class="h3 skills-title">My Skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">DevOps (Docker)</h5><data value="75">75%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">AI/ML (Deep Learning)</h5><data value="40">40%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 40%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">AI/ML (OpenCV)</h5><data value="65">65%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 65%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">AI/ML (GANs)</h5><data value="30">30%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 30%;"></div></div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="portfolio" data-page="portfolio">
+        <header><h2 class="h2 article-title">Portfolio</h2></header>
+        
+        <section class="portfolio-section">
+          <ul class="portfolio-grid">
+            <li class="portfolio-item">
+              <div class="portfolio-banner">
+                Project Image 1
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-category">Machine Learning</div>
+                <h3>Project Title 1</h3>
+                <p class="portfolio-description">
+                  Brief description of your first project. You can edit this text to describe what the project does and its key features.
+                </p>
+                <div class="portfolio-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">TensorFlow</span>
+                  <span class="tech-tag">OpenCV</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="portfolio-banner">
+                Project Image 2
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-category">Computer Vision</div>
+                <h3>Project Title 2</h3>
+                <p class="portfolio-description">
+                  Brief description of your second project. You can edit this text to describe what the project does and its key features.
+                </p>
+                <div class="portfolio-tech">
+                  <span class="tech-tag">PyTorch</span>
+                  <span class="tech-tag">YOLO</span>
+                  <span class="tech-tag">Flask</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="portfolio-banner">
+                Project Image 3
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-category">Deep Learning</div>
+                <h3>Project Title 3</h3>
+                <p class="portfolio-description">
+                  Brief description of your third project. You can edit this text to describe what the project does and its key features.
+                </p>
+                <div class="portfolio-tech">
+                  <span class="tech-tag">GANs</span>
+                  <span class="tech-tag">Keras</span>
+                  <span class="tech-tag">NumPy</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="portfolio-banner">
+                Project Image 4
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-category">Data Science</div>
+                <h3>Project Title 4</h3>
+                <p class="portfolio-description">
+                  Brief description of your fourth project. You can edit this text to describe what the project does and its key features.
+                </p>
+                <div class="portfolio-tech">
+                  <span class="tech-tag">Pandas</span>
+                  <span class="tech-tag">Scikit-learn</span>
+                  <span class="tech-tag">Matplotlib</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="portfolio-banner">
+                Project Image 5
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-category">Web Development</div>
+                <h3>Project Title 5</h3>
+                <p class="portfolio-description">
+                  Brief description of your fifth project. You can edit this text to describe what the project does and its key features.
+                </p>
+                <div class="portfolio-tech">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="blog" data-page="blog">
+        <header><h2 class="h2 article-title">Blog</h2></header>
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item"><a href="#"><figure class="blog-banner-box"><img src="./assets/images/blog-1.jpg" alt="Blog Post 1" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">AI</p><span class="dot"></span><time datetime="2025-07-01">Jul 1, 2025</time></div><h3 class="h3 blog-item-title">First Steps into AI</h3><p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor, justo at blandit facilisis.</p></div></a></li>
+            <li class="blog-post-item"><a href="#"><figure class="blog-banner-box"><img src="./assets/images/blog-2.jpg" alt="Blog Post 2" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">Machine Learning</p><span class="dot"></span><time datetime="2025-07-05">Jul 5, 2025</time></div><h3 class="h3 blog-item-title">Building ML Intuition</h3><p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis blandit est.</p></div></a></li>
+            <li class="blog-post-item"><a href="#"><figure class="blog-banner-box"><img src="./assets/images/blog-3.jpg" alt="Blog Post 3" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">Deep Learning</p><span class="dot"></span><time datetime="2025-07-10">Jul 10, 2025</time></div><h3 class="h3 blog-item-title">Understanding GANs</h3><p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis lorem.</p></div></a></li>
+            <li class="blog-post-item"><a href="#"><figure class="blog-banner-box"><img src="./assets/images/blog-4.jpg" alt="Blog Post 4" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">Vision</p><span class="dot"></span><time datetime="2025-07-15">Jul 15, 2025</time></div><h3 class="h3 blog-item-title">Vision Transformers vs CNNs</h3><p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id accumsan eros.</p></div></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+  // Simple navbar tab switching
+  document.querySelectorAll('[data-nav-link]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const clickedPage = btn.textContent.trim().toLowerCase();
+
+      // Set active tab
+      document.querySelectorAll('[data-nav-link]').forEach(link => {
+        link.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      // Show the correct page
+      document.querySelectorAll('[data-page]').forEach(page => {
+        if (page.getAttribute('data-page') === clickedPage) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
